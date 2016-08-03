@@ -1,5 +1,5 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="eu.dielissen.aha" version="1.0.0">
-  <name>AHA Mockup app</name>
+  <name>AHA Helferangebot</name>
   <description>Mockup app for the AHA Projekt</description>
   <author href="https://aha.dielissen.eu" email="aha@dielissen.eu">Dennis Dielissen - Eindhoven University of Technology</author>
   <content src="index.html"/>

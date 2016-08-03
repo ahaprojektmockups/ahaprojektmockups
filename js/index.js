@@ -113,6 +113,12 @@ function setFrame(src){
         'src',
         src
     );
+
+    if(src=='call.html'){
+        navigator.vibrate(
+            [1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750,1500,750]
+        );
+    }
 }
 
 function checkForCalls(){
@@ -236,6 +242,7 @@ function logout(){
 }
 
 function acceptCall(){
+    navigator.vibrate(0);
     API.request(
         'acceptCall',
         {
