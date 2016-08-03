@@ -26,7 +26,13 @@ function setUserInfo(){
     $("#contact-name").val(
         user.getFullName()
     );
-    $("#contact-email").val(
+    $("#profile-firstname").val(
+        user.firstname
+    );
+    $("#profile-lastname").val(
+        user.lastname
+    );
+    $("#contact-email, #profile-email").val(
         user.email
     );
 }
@@ -69,6 +75,16 @@ $(document).ready(function(){
     setPage(hash);
 
     setUserInfo();
+
+    $(".doNotDisturb").click(function(){
+        if($('.on', this).css('display')=='block'){
+            $('.doNotDisturb .on').hide();
+            $('.doNotDisturb .off').show();
+        }else{
+            $('.doNotDisturb .off').hide();
+            $('.doNotDisturb .on').show();
+        }
+    })
 });
 
 $(window).resize(function(){

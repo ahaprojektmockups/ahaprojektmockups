@@ -166,3 +166,15 @@ p {
 .nav-tabs.nav-justified > li a {
     margin-bottom:0px;
 }
+
+
+
+
+
+#availability-table {
+    margin:0px;
+}
+
+#availability-table td:last-child {
+    text-align: right;
+}

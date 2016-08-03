@@ -8,18 +8,18 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://projekt-aha.hs-ruhrwest.de/favicon.png" type="image/png">
+    <link rel="icon" href="http://projekt-aha.hs-ruhrwest.de/favicon.png" type="image/png">
     <title>AHA Projekt</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7CRoboto+Condensed:400,700%7CRoboto+Mono:400,500,700%7CRoboto+Slab:400,700%7CRoboto:400,500,700,900" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900%7CRoboto+Condensed:400,700%7CRoboto+Mono:400,500,700%7CRoboto+Slab:400,700%7CRoboto:400,500,700,900" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
 
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link href="css/app/menu.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 </head>
 <body>
 <div id="leftContainer">
-    <div id="doNotDisturb">
+    <div class="doNotDisturb">
         <div class="on">
             <i class="fa fa-toggle-on pull-right"></i>
             <div class="title-row">
@@ -124,8 +124,20 @@
 </div>
 </nav><div id="container">
     <div id="page-neuigkeiten" class="page hidden" data-pagetitle="Neuigkeiten">
-        <header><img src="res/images/header.png" style="width:100%;"></header><div class="container">
+        <header><img src="http://aha.dielissen.eu/res/images/header.png" style="width:100%;"></header><div class="container">
         <div class="card">
+            <div class="card-title">
+                Was möchten Sie hier sehen?
+            </div>
+            <div class="card-date">
+                ...
+            </div>
+            <div class="card-body">
+                <p>...</p>
+            </div>
+        </div>
+
+        <div class="card hidden">
             <div class="card-title">
                 Title of news item
             </div>
@@ -138,7 +150,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card hidden">
             <div class="card-title">
                 Title of news item
             </div>
@@ -151,20 +163,7 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-title">
-                Title of news item
-            </div>
-            <div class="card-date">
-                <i class="fa fa-calendar fa-fw"></i> Mittwoch 13. Juli 2017 um 14:30 Uhr
-            </div>
-            <div class="card-body">
-                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.</p>
-                <p>Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
-            </div>
-        </div>
-
-        <div class="card">
+        <div class="card hidden">
             <div class="card-title">
                 Title of news item
             </div>
@@ -179,109 +178,174 @@
     </div>
     </div>
     <div id="page-profil" class="page hidden" data-pagetitle="Mein Profil">
+        <div class="doNotDisturb">
+            <div class="on">
+                <i class="fa fa-toggle-on pull-right"></i>
+                <div class="title-row">
+                    Nicht stören an
+                </div>
+                <div class="subtext-row">
+                    Wir werden Sie nicht fragen
+                </div>
+            </div>
+            <div class="off">
+                <i class="fa fa-toggle-off pull-right"></i>
+                <div class="title-row">
+                    Nicht stören aus
+                </div>
+                <div class="subtext-row">
+                    Wir könnten Sie fragen
+                </div>
+            </div>
+        </div>
+
         <div class="container">
-            <div class="card">
-                <div class="card-title">
-                    Profil
-                </div>
-                <div class="card-date">
-                    ...
-                </div>
-                <div class="card-body">
-                    <p>
-                        <button id="testParentFunction">
-                            Click me, click me, click me ooooh
-                        </button>
-                    </p>
+
+            <div class="form-field">
+                <label>
+                    Ihr Vorname
+                </label>
+                <input type="text"
+                       id="profile-firstname"
+                       class="form-control" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Ihr Nachname
+                </label>
+                <input type="text"
+                       id="profile-lastname"
+                       class="form-control" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Ihre Emailadresse
+                </label>
+                <input type="email"
+                       id="profile-email"
+                       class="form-control" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Ihre Telefonnummer
+                </label>
+                <input type="tel"
+                       id="profile-phone"
+                       class="form-control" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Ihr Geschlecht
+                </label>
+                <div>
+                    <input type="radio"
+                           id="profile-male"
+                           name="profile-gender" /> männlich
+                    &nbsp;
+                    &nbsp;
+
+                    <input type="radio"
+                           id="profile-female"
+                           name="profile-gender" /> weiblich
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-title">
-                    ...
-                </div>
-                <div class="card-date">
-                    ...
-                </div>
-                <div class="card-body">
-                    <p>...</p>
-                </div>
+            <div style="text-align: center;font-size:1.2em;">
+                <button class="button-green btn-xl">
+                    <i class="fa fa-save fa-fw"></i> Speichern
+                </button>
             </div>
 
-            <div class="card">
-                <div class="card-title">
-                    ...
-                </div>
-                <div class="card-date">
-                    ...
-                </div>
-                <div class="card-body">
-                    <p>...</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">
-                    ...
-                </div>
-                <div class="card-date">
-                    ...
-                </div>
-                <div class="card-body">
-                    <p>...</p>
-                </div>
-            </div>
         </div>
     </div>
     <div id="page-verfuegbarkeit" class="page hidden" data-pagetitle="Meine Verfügbarkeit">
         <div class="container">
-            <div class="card">
-                <div class="card-title">
-                    Verfügbarkeit
-                </div>
-                <div class="card-date">
-                    ...
-                </div>
-                <div class="card-body">
-                    <p>...</p>
-                </div>
+            <div class="page-intro" style="font-size:1.1em;line-height:1.5;">
+                Stellen Sie hier Ihre generelle Verfügbarkeit ein. Wenn Sie darüber hinaus für eine bestimmte Zeit
+                nicht verfügbar sind, können Sie das im Menu angeben.
+            </div>
+            <div>
+                <button class="button-green" style="width: 100%; margin: 10px 0px;">
+                    Ich bin immer verfügbar
+                </button>
             </div>
 
-            <div class="card">
-                <div class="card-title">
-                    ...
-                </div>
-                <div class="card-date">
-                    ...
-                </div>
-                <div class="card-body">
-                    <p>...</p>
-                </div>
+            <div class="card" style="padding:0px;">
+                <table class="table table-striped" id="availability-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Montag
+                            </td>
+                            <td>
+                                00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Dienstag
+                            </td>
+                            <td>
+                                00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Mittwoch
+                            </td>
+                            <td>
+                                00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Donnerstag
+                            </td>
+                            <td>
+                                00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Freitag
+                            </td>
+                            <td>
+                                00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Samstag
+                            </td>
+                            <td>
+                                00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Sonntag
+                            </td>
+                            <td>
+                                Nicht verfügbar <i class="fa fa-angle-right fa-fw"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="card">
-                <div class="card-title">
-                    ...
-                </div>
-                <div class="card-date">
-                    ...
-                </div>
-                <div class="card-body">
-                    <p>...</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">
-                    ...
-                </div>
-                <div class="card-date">
-                    ...
-                </div>
-                <div class="card-body">
-                    <p>...</p>
-                </div>
-            </div>
+            <p>
+                Select starting time: Anfangszeit auswaehlen
+            </p>
+            <p>
+                Select end time: Endzeit auswaehlen
+            </p>
+            <p>
+                Save: speichern
+            </p>
         </div>
     </div>
     <div id="page-alarmmeldungen" class="page hidden" data-pagetitle="Meine Alarmmeldungen">
@@ -440,7 +504,7 @@
 
             <div class="form-field">
                 <label>
-                    Ihre Name
+                    Ihr Name
                 </label>
                 <input type="text"
                        id="contact-name"
@@ -467,7 +531,7 @@
 
             <div class="form-field">
                 <label>
-                    Ihre Frage
+                    Ihre Nachricht
                 </label>
                 <textarea class="form-control"></textarea>
             </div>
@@ -499,72 +563,72 @@
         <div id="alarm-map"></div>
 
         <div class="container">
-            <div class="card">
-                <div class="card-title">
-                    Medizinischer Notfall
-                </div>
-                <div class="card-date">
-                    Männlich, ungefähr 50 Jahre alt
-                </div>
-                <div class="card-body">
-                    <p>Lorem ipsum, depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
-                </div>
-            </div>
 
             <div class="card" id="card-reached-button">
                 <div class="card-title">
-                    Destination
+                    Einsatzort
                 </div>
                 <div class="card-date">
-                    Let the dispatcher know once you reached the emergency
+                    Lassen Sie den Disponenten wissen, dass Sie den Einsatzort erreicht haben
                 </div>
                 <p>Sternbuschweg 103a<br />
                     47057 Duisburg</p>
                 <div class="card-body">
                     <button class="button-green reached-emergency-button">
-                        <i class="fa fa-map-marker fa-fw"></i> I reached the emergency
+                        <i class="fa fa-map-marker fa-fw"></i> Ich habe den Einsatzort erreicht
                     </button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">
+                    Medizinischer Notfall
+                </div>
+                <div class="card-date">
+
+                </div>
+                <div class="card-body">
+                    <p>Männlich, ungefähr 50 Jahre alt</p>
                 </div>
             </div>
 
             <div class="card hidden" id="card-done-button">
                 <div class="card-title">
-                    Job done?
+                    Einsatz erledigt
                 </div>
                 <div class="card-date">
-                    Please let us know that your part of the job has been done
+                    Bitte lassen Sie uns wissen, ob Sie Ihren Teil des Einsatzes erledigt haben
                 </div>
                 <div class="card-body">
                     <button class="button-green assistance-done-button">
-                        <i class="fa fa-check fa-fw"></i> Provided assistance
+                        <i class="fa fa-check fa-fw"></i> Ich habe meine Teil erledigt
                     </button>
                 </div>
             </div>
 
             <div class="card" id="card-call-button">
                 <div class="card-title">
-                    Need for contact?
+                    Wuenschen Sie Kontakt?
                 </div>
                 <div class="card-date">
-                    Do you need to know something or in need for some additional resources?
+                    Brauchen Sie weitere Informationen oder zusaetzliche Unterstuetzung?
                 </div>
                 <div class="card-body">
                     <button class="button-red get-called-button">
-                        <i class="fa fa-phone fa-fw"></i> Get called by dispatcher
+                        <i class="fa fa-phone fa-fw"></i> Rueckruf vom Disponenten
                     </button>
                 </div>
             </div>
 
             <div class="card" id="card-cancel-button">
                 <div class="card-title">
-                    Cancel assistance
+                    Einsatz abbrechen
                 </div>
                 <div class="card-date">
-                    By accepting the call you are required to provide assistance
+                    Dadurch, dass Sie den Einsatz angenommen haben, haben Sie sich verpflichtet zu helfen
                 </div>
                 <div class="card-body">
                     <button class="button-red cancel-assistance-button">
-                        <i class="fa fa-ban fa-fw"></i> Still cancel assistance
+                        <i class="fa fa-ban fa-fw"></i> Trotzdem Einsatz abbrechen
                     </button>
                 </div>
             </div>
@@ -575,7 +639,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAas-i4VoXBcAUwStvQvKtces-I3TWwKFc&amp;callback=initMap" async defer></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAas-i4VoXBcAUwStvQvKtces-I3TWwKFc&amp;callback=initMap" async defer></script>
 </body>
 </html>

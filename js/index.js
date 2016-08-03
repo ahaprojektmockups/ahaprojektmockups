@@ -1,3 +1,7 @@
+function unexpectedError(){
+    alert("An unexpected error occured. Please restart the app and try again.");
+}
+
 function consoleInfo(data) {
     console.log(data);
 }
@@ -101,17 +105,47 @@ function resizeFrame(){
     );
 }
 
-function testMeTestMeTestMeOooh(){
-    $('#app-frame').attr(
-        'src',
-        'http://www.annickislief.nl/mickey.html'
-    );
-}
-
 function setFrame(src){
+    $('#app-frame').removeAttr(
+        'src'
+    );
     $('#app-frame').attr(
         'src',
         src
+    );
+}
+
+function checkForCalls(){
+    API.request(
+        'checkForCalls',
+        {
+            session:sessionStorage.sessionUID
+        },
+        function(response){
+            if(response.success){
+                if(response.call){
+
+                    setFrame('call.html');
+                    sessionStorage.callUID = response.call.uid;
+
+                }else{
+                    setTimeout(function(){
+                        checkForCalls();
+                    },5000);
+                }
+            }else{
+                //unexpectedError();
+                setTimeout(function(){
+                    checkForCalls();
+                },5000);
+            }
+        },
+        function(response){
+            //unexpectedError();
+            setTimeout(function(){
+                checkForCalls();
+            },5000);
+        }
     );
 }
 
@@ -120,15 +154,46 @@ function setUser(userData){
 
     localStorage.setItem('user', User.uid);
 
+    API.request(
+        'startSession',
+        {
+            device:localStorage.device,
+            user:localStorage.user
+        },
+        function(response){
+            if(response.success){
+                sessionStorage.sessionUID = response.uid;
+                checkForCalls();
+            }else{
+                unexpectedError();
+            }
+        },
+        function(response){
+            unexpectedError();
+        }
+    );
+
     console.log(localStorage.user);
 }
 
 function unsetUser(){
-    localStorage.removeItem('user')
+    localStorage.removeItem('user');
+    API.request(
+        'CloseSession',
+        {
+            session:sessionStorage.sessionUID
+        },
+        function(response){
+
+        },
+        function(response){
+
+        }
+    );
 }
 
 function incorrectCredentials(){
-    alert("These credentials are incorrect. Check your username and password and try again.");
+    alert("Benutzername und Passwort stimmen nicht überein");
 }
 
 function login(username, password){
@@ -143,6 +208,9 @@ function login(username, password){
             if(response.success){
                 setUser(
                     response.user
+                );
+                setFrame(
+                    'app.html'
                 );
             }else{
                 incorrectCredentials();
@@ -168,8 +236,61 @@ function logout(){
 }
 
 function acceptCall(){
-    setFrame('app.html#alarm');
+    API.request(
+        'acceptCall',
+        {
+            call:sessionStorage.callUID
+        },
+        function(response){
+            if(response.success){
+                setFrame('app.html#alarm');
+            }else{
+                unexpectedError();
+            }
+        },
+        function(response){
+            unexpectedError();
+        }
+    );
 }
+
+
+
+function setAppOrLogin(){
+    console.log("User: " + localStorage.user);
+
+    if(localStorage.user && localStorage.user!='false'){
+        API.request(
+            'getUser',
+            {
+                uid:localStorage.user
+            },
+            function(response){
+                if(response.success){
+                    setUser(response.user);
+                    setFrame(
+                        'app.html'
+                    );
+                }else{
+                    setFrame(
+                        'login.html'
+                    );
+                }
+            },
+            function(response){
+                setFrame(
+                    'login.html'
+                );
+            }
+        );
+    }else{
+        setFrame(
+            'login.html'
+        );
+    }
+}
+
+
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -230,37 +351,26 @@ var app = {
         });
 
         //localStorage.removeItem('user');
+        console.log("Device: " + localStorage.device);
 
-        console.log(localStorage.user);
-
-        if(localStorage.user && localStorage.user!='false'){
+        if(!localStorage.device || localStorage.device=='false'){
             API.request(
-                'getUser',
-                {
-                    uid:localStorage.user
-                },
+                'RegisterDevice',
+                {},
                 function(response){
                     if(response.success){
-                        setUser(response.user);
-                        setFrame(
-                            'app.html'
-                        );
+                        localStorage.setItem('device', response.uid);
+                        setAppOrLogin();
                     }else{
-                        setFrame(
-                            'login.html'
-                        );
+                        unexpectedError();
                     }
                 },
                 function(response){
-                    setFrame(
-                        'login.html'
-                    );
+                    unexpectedError();
                 }
             );
         }else{
-            setFrame(
-                'login.html'
-            );
+            setAppOrLogin();
         }
     }
 };

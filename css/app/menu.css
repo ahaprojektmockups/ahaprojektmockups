@@ -9,32 +9,32 @@
     z-index: 10000;
 }
 
-#doNotDisturb {
+.doNotDisturb {
     color:#FFF;
 }
 
-#doNotDisturb .on {
+.doNotDisturb .on {
     background:#c30000;
     padding:5px 10px;
 }
 
-#doNotDisturb .off {
+.doNotDisturb .off {
     background:#00ba00;
     padding:5px 10px;
     display:none;
 }
 
-#doNotDisturb .title-row {
+.doNotDisturb .title-row {
     font-family: "Roboto Condensed", sans-serif;
     font-weight:700;
     font-size:1.5em;
 }
 
-#doNotDisturb .subtext-row {
+.doNotDisturb .subtext-row {
     font-size:0.9em;
 }
 
-#doNotDisturb i {
+.doNotDisturb i {
     font-size: 2.5em;
     margin-top:6px;
     margin-right:2px;

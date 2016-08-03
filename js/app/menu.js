@@ -20,7 +20,7 @@ function toggleMenu(){
 
 function setPage(page){
     if(!page || page==""){
-        page = 'neuigkeiten';
+        page = 'verfuegbarkeit';
     }
 
     $('#menu li').removeClass('active');
