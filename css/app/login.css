@@ -1,0 +1,25 @@
+body {
+    margin:0px;
+    padding:0px;
+
+    background: #00ba00;
+    background: -moz-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #00ba00), color-stop(100%, #c30000));
+    background: -webkit-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -o-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -ms-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ba00, endColorstr=#c30000, GradientType=1);
+}
+
+#login-button {
+    margin-top:5px;
+    background:none;
+    border:3px solid #FFF;
+    font-weight:700;
+    color:#FFF;
+}
+
+#login-button:hover,
+#login-button:focus {
+}

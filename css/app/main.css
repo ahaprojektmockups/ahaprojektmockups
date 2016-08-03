@@ -1,0 +1,168 @@
+body {
+    padding:0px;
+    background:#f9f9f9;
+    font-family:"Lato", sans-serif;
+    font-size:12px;
+}
+
+.navbar.navbar-default {
+    margin:0px;
+    background:none;
+    border:none;
+}
+
+.navbar .container {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: "Roboto Condensed",sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-right:40px;
+}
+
+#navToggle {
+    background: none;
+    padding: 0px;
+    margin: 0px;
+    border: 0px none;
+    line-height: 1;
+    font-size: 1.5em;
+}
+
+#header_title {
+    padding-top:1px;
+    position:relative;
+    display:inline-block;
+}
+
+header {
+    padding:15px 60px;
+    padding-top:65px;
+
+    background: #00ba00;
+    background: -moz-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #00ba00), color-stop(100%, #c30000));
+    background: -webkit-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -o-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -ms-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ba00, endColorstr=#c30000, GradientType=1);
+}
+
+nav.navbar.navbar-default.fixed_background {
+    background: #00ba00;
+    background: -moz-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #00ba00), color-stop(100%, #c30000));
+    background: -webkit-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -o-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: -ms-linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    background: linear-gradient(-45deg, #00ba00 0%, #c30000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ba00, endColorstr=#c30000, GradientType=1);
+}
+
+
+.page {
+    padding-top:50px;
+}
+
+.page:first-child {
+    padding-top:0px;
+}
+
+
+.container {
+    padding-top:7.5px;
+    padding-bottom:7.5px;
+}
+
+p {
+    margin-bottom:.25em;
+}
+
+.card {
+    padding:7.5px;
+    background:#FFF;
+    border:1px solid #EEE;
+    box-shadow: 2px 2px 2px #EEE;
+    margin:7.5px 0px;
+    position:relative;
+    display:block;
+}
+
+.card-title {
+    font-family: "Roboto Condensed",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(195, 0, 0);
+}
+
+.card-date {
+    font-family: "Roboto Condensed",sans-serif;
+    font-weight: 700;
+    color: rgb(119, 119, 119);
+    font-size: 10px;
+    margin-top:3px;
+}
+
+.card-body {
+    margin-top:3px;
+}
+
+.card-body p:last-child {
+    margin-bottom:0px;
+}
+
+.card-buttons {
+    margin-top:5px;
+}
+
+.card-button {
+    font-weight:700;
+    padding:5px 7.5px;
+    border:1px solid #DDD;
+    background: #00ba00;
+    color:#FFF;
+}
+
+.button-red, .button-green {
+    font-weight:700;
+    padding:5px 7.5px;
+        color:#FFF;
+}
+
+.button-red {
+    border:1px solid #DDD;
+    background: #c30000;
+}
+
+.button-green {
+    border:1px solid #DDD;
+    background: #00ba00;
+}
+
+.form-field {
+    margin-bottom:10px;
+}
+
+.form-field label {
+    color:#c30000;
+    font-size:1.15em;
+}
+
+.accept-info {
+    margin-top: 3px;
+    font-size: .8em;
+    font-weight: 700;
+    color: #999;
+}
+
+.nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+}
+
+.nav-tabs.nav-justified > li a {
+    margin-bottom:0px;
+}

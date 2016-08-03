@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://projekt-aha.hs-ruhrwest.de/favicon.png" type="image/png">
+    <title>AHA Projekt</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7CRoboto+Condensed:400,700%7CRoboto+Mono:400,500,700%7CRoboto+Slab:400,700%7CRoboto:400,500,700,900" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link href="css/app/menu.css" rel="stylesheet">
+    <link href="css/app/timeline.css" rel="stylesheet">
+    <link href="css/app/main.css" rel="stylesheet">
+
+    <script src="js/app/menu.js"></script>
+    <script src="js/app/alarm.js"></script>
+    <script src="js/app/main.js"></script>
+
+</head>
+<body>
+<div id="leftContainer">
+    <div id="doNotDisturb">
+        <div class="on">
+            <i class="fa fa-toggle-on pull-right"></i>
+            <div class="title-row">
+                Nicht stören an
+            </div>
+            <div class="subtext-row">
+                Wir werden Sie nicht fragen
+            </div>
+        </div>
+        <div class="off">
+            <i class="fa fa-toggle-off pull-right"></i>
+            <div class="title-row">
+                Nicht stören aus
+            </div>
+            <div class="subtext-row">
+                Wir könnten Sie fragen
+            </div>
+        </div>
+    </div>
+    <ul id="menu">
+        <li class="active">
+            <a href="#neuigkeiten">
+                <i class="fa fa-newspaper-o fa-fw"></i>
+                Neuigkeiten
+            </a>
+        </li>
+        <li>
+            <a href="#profil">
+                <i class="fa fa-user fa-fw"></i>
+                Mein Profil
+            </a>
+        </li>
+        <li>
+            <a href="#verfuegbarkeit">
+                <i class="fa fa-history fa-fw"></i>
+                Meine Verfügbarkeit
+            </a>
+        </li>
+        <li style="display:none;">
+            <a href="#alarmmeldungen">
+                <i class="fa fa-bell fa-fw"></i>
+                Meine Alarmmeldungen
+            </a>
+        </li>
+        <li>
+            <a href="#ueber">
+                <i class="fa fa-angle-double-right fa-fw"></i>
+                Über AHA
+            </a>
+        </li>
+        <li style="display:none;">
+            <a href="#anleitung">
+                <i class="fa fa-info-circle fa-fw"></i>
+                Gebrauchsanleitung
+            </a>
+        </li>
+        <li>
+            <a href="#kontakt">
+                <i class="fa fa-info-circle fa-fw"></i>
+                Kontakt
+            </a>
+        </li>
+        <li>
+            <a href="#abmelden" id="menu-sign-out">
+                <i class="fa fa-sign-out fa-fw"></i>
+                Abmelden
+            </a>
+        </li>
+        <li style="display:none;">
+            <br>
+        </li>
+        <li style="display:none;">
+            <a href="#alarm">
+                <i class="fa fa-flask fa-fw"></i>
+                Alarm
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top fixed_background"><div class="container align-center">
+    <button id="navToggle" class="pull-left">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <span id="header_title"><i class="fa fa-spinner fa-pulse fa-fw"></i> laden...</span>
+</div>
+</nav><div id="container">
+    <div id="page-neuigkeiten" class="page hidden" data-pagetitle="Neuigkeiten">
+        <header><img src="res/images/header.png" style="width:100%;"></header><div class="container">
+        <div class="card">
+            <div class="card-title">
+                Title of news item
+            </div>
+            <div class="card-date">
+                <i class="fa fa-calendar fa-fw"></i> Mittwoch 13. Juli 2017 um 14:30 Uhr
+            </div>
+            <div class="card-body">
+                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.</p>
+                <p>Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                Title of news item
+            </div>
+            <div class="card-date">
+                <i class="fa fa-calendar fa-fw"></i> Mittwoch 13. Juli 2017 um 14:30 Uhr
+            </div>
+            <div class="card-body">
+                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.</p>
+                <p>Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                Title of news item
+            </div>
+            <div class="card-date">
+                <i class="fa fa-calendar fa-fw"></i> Mittwoch 13. Juli 2017 um 14:30 Uhr
+            </div>
+            <div class="card-body">
+                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.</p>
+                <p>Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                Title of news item
+            </div>
+            <div class="card-date">
+                <i class="fa fa-calendar fa-fw"></i> Mittwoch 13. Juli 2017 um 14:30 Uhr
+            </div>
+            <div class="card-body">
+                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.</p>
+                <p>Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="page-profil" class="page hidden" data-pagetitle="Mein Profil">
+        <div class="container">
+            <div class="card">
+                <div class="card-title">
+                    Profil
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>
+                        <button id="testParentFunction">
+                            Click me, click me, click me ooooh
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-verfuegbarkeit" class="page hidden" data-pagetitle="Meine Verfügbarkeit">
+        <div class="container">
+            <div class="card">
+                <div class="card-title">
+                    Verfügbarkeit
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-alarmmeldungen" class="page hidden" data-pagetitle="Meine Alarmmeldungen">
+        <div class="container">
+            <div class="card">
+                <div class="card-title">
+                    Alarmmeldungen
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-ueber" class="page hidden" data-pagetitle="Über AHA">
+        <div class="container">
+            <div class="card">
+                <div class="card-title">
+                    Forschungsprojekt AHA
+                </div>
+                <div class="card-date">
+                    Automatisiertes Helferangebot bei Großschadensereignissen
+                </div>
+                <div class="card-body">
+                    <p>Zivile Sicherheit – Schutz und Rettung bei komplexen Einsatzlagen
+                        Forschung für die zivile Sicherheit 2012–2017</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <i class="fa fa-search fa-fw"></i> Motivation
+                </div>
+                <div class="card-date"></div>
+                <div class="card-body">
+                    <p>Bei großflächigen Schadensereignissen besteht die Gefahr, dass die Vielzahl der Alarme die Ressourcen der Rettungs- und Sicherheitskräfte übersteigt. In diesem Fall kann über die Einsatzleitung auch überregional Hilfe angefordert werden.</p>
+                    <p>
+                        Doch was ist, wenn dies nicht mehr ausreicht, um eine schnelle, qualifizierte Hilfe sicherzustellen? Wie kann in einem solchen Fall das Potenzial an geeigneten Helfern aus der Bevölkerung, die sich in unmittelbarer Nähe befinden, sinnvoll genutzt werden? In welcher Form können diese zusätzlichen Ressourcen zur Verfügung gestellt werden?
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <i class="fa fa-flag fa-fw"></i> Ziele und Vorgehen
+                </div>
+                <div class="card-date"></div>
+                <div class="card-body">
+                    <p>Ziel des Vorhabens AHA ist es, bei Großschadensereignissen gegebenenfalls zusätzliche Helfer sowie technisches Gerät aus dem Kreis der Bevölkerung verfügbar zu machen. Dazu werden vorhandene Ressourcen erfasst, überprüft und registriert. Im Bedarfsfall kann über eine Smartphone-App die aktuelle örtliche Verfügbarkeit und Bereitschaft zum Helfen abgefragt werden. Die so generierten Ressourcen werden in das Leitstellensystem integriert und so aufbereitet, dass der Disponent effizient darauf zurückgreifen kann. Die Entscheidung über den Einsatz der Helfer erfolgt nicht automatisiert, sondern durch den Disponenten.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <i class="fa fa-flask fa-fw"></i> Innovationen und Perspektiven
+                </div>
+                <div class="card-date"></div>
+                <div class="card-body">
+                    <p>Durch die Möglichkeit, im Fall von Großschadensereignissen schnell zusätzliche, qualifizierte Ressourcen zur Verfügung zu stellen, wird AHA zu einer wesentlichen Verkürzung der Hilfsfrist beitragen. Dabei ist die Realisierung niedriger Investitions- und Betriebskosten ein zentrales Ziel, ebenso wie die Einhaltung der Persönlichkeitsrechte der freiwilligen Helfer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-anleitung" class="page hidden" data-pagetitle="Gebrauchsanleitung">
+        <div class="container">
+            <div class="card">
+                <div class="card-title">
+                    Gebrauchsanleitung
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ...
+                </div>
+                <div class="card-date">
+                    ...
+                </div>
+                <div class="card-body">
+                    <p>...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-kontakt" class="page hidden" data-pagetitle="Kontakt">
+        <div class="container">
+
+            <div class="form-field">
+                <label>
+                    Ihre Name
+                </label>
+                <input type="text"
+                       id="contact-name"
+                       class="form-control" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Ihre Emailadresse
+                </label>
+                <input type="email"
+                       id="contact-email"
+                       class="form-control" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Ihre Telefonnummer
+                </label>
+                <input type="tel"
+                       id="contact-phone"
+                       class="form-control" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Ihre Frage
+                </label>
+                <textarea class="form-control"></textarea>
+            </div>
+
+            <div style="text-align: center;font-size:1.2em;">
+                <button class="button-green btn-xl">
+                    <i class="fa fa-send fa-fw"></i> Senden
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-alarm" class="page hidden" data-pagetitle="&lt;i class='fa fa-bell fa-fw'&gt;&lt;/i&gt; Alarm">
+
+        <ul class="nav nav-tabs nav-justified" id="transportation-modes">
+            <li class="active"><a data-transport="WALKING">
+                <i class="fa fa-male fa-fw"></i>
+            </a></li>
+            <li><a data-transport="BICYCLING">
+                <i class="fa fa-bicycle fa-fw"></i>
+            </a></li>
+            <li><a data-transport="DRIVING">
+                <i class="fa fa-car fa-fw"></i>
+            </a></li>
+            <li><a data-transport="TRANSIT">
+                <i class="fa fa-subway fa-fw"></i>
+            </a></li>
+        </ul>
+
+        <div id="alarm-map"></div>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-title">
+                    Medizinischer Notfall
+                </div>
+                <div class="card-date">
+                    Männlich, ungefähr 50 Jahre alt
+                </div>
+                <div class="card-body">
+                    <p>Lorem ipsum, depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+                </div>
+            </div>
+
+            <div class="card" id="card-reached-button">
+                <div class="card-title">
+                    Destination
+                </div>
+                <div class="card-date">
+                    Let the dispatcher know once you reached the emergency
+                </div>
+                <p>Sternbuschweg 103a<br />
+                    47057 Duisburg</p>
+                <div class="card-body">
+                    <button class="button-green reached-emergency-button">
+                        <i class="fa fa-map-marker fa-fw"></i> I reached the emergency
+                    </button>
+                </div>
+            </div>
+
+            <div class="card hidden" id="card-done-button">
+                <div class="card-title">
+                    Job done?
+                </div>
+                <div class="card-date">
+                    Please let us know that your part of the job has been done
+                </div>
+                <div class="card-body">
+                    <button class="button-green assistance-done-button">
+                        <i class="fa fa-check fa-fw"></i> Provided assistance
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" id="card-call-button">
+                <div class="card-title">
+                    Need for contact?
+                </div>
+                <div class="card-date">
+                    Do you need to know something or in need for some additional resources?
+                </div>
+                <div class="card-body">
+                    <button class="button-red get-called-button">
+                        <i class="fa fa-phone fa-fw"></i> Get called by dispatcher
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" id="card-cancel-button">
+                <div class="card-title">
+                    Cancel assistance
+                </div>
+                <div class="card-date">
+                    By accepting the call you are required to provide assistance
+                </div>
+                <div class="card-body">
+                    <button class="button-red cancel-assistance-button">
+                        <i class="fa fa-ban fa-fw"></i> Still cancel assistance
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAas-i4VoXBcAUwStvQvKtces-I3TWwKFc&amp;callback=initMap" async defer></script>
+</body>
+</html>
