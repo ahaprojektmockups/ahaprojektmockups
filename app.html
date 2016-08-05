@@ -40,7 +40,7 @@
                 Nicht stören an
             </div>
             <div class="subtext-row">
-                Wir werden Sie nicht fragen
+                Wir werden Sie nicht alarmieren
             </div>
         </div>
         <div class="off">
@@ -49,7 +49,7 @@
                 Nicht stören aus
             </div>
             <div class="subtext-row">
-                Wir könnten Sie fragen
+                Wir könnten Sie alarmieren
             </div>
         </div>
     </div>
@@ -125,6 +125,30 @@
 </nav><div id="container">
     <div id="page-neuigkeiten" class="page hidden" data-pagetitle="Neuigkeiten">
         <header><img src="http://aha.dielissen.eu/res/images/header.png" style="width:100%;"></header><div class="container">
+
+        <div class="card" style="padding:0px;">
+            <div class="doNotDisturb">
+                <div class="on">
+                    <i class="fa fa-toggle-on pull-right"></i>
+                    <div class="title-row">
+                        Nicht stören an
+                    </div>
+                    <div class="subtext-row">
+                        Wir werden Sie nicht alarmieren
+                    </div>
+                </div>
+                <div class="off">
+                    <i class="fa fa-toggle-off pull-right"></i>
+                    <div class="title-row">
+                        Nicht stören aus
+                    </div>
+                    <div class="subtext-row">
+                        Wir könnten Sie alarmieren
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="card">
             <div class="card-title">
                 Was möchten Sie hier sehen?
@@ -185,7 +209,7 @@
                     Nicht stören an
                 </div>
                 <div class="subtext-row">
-                    Wir werden Sie nicht fragen
+                    Wir werden Sie nicht alarmieren
                 </div>
             </div>
             <div class="off">
@@ -194,7 +218,7 @@
                     Nicht stören aus
                 </div>
                 <div class="subtext-row">
-                    Wir könnten Sie fragen
+                    Wir könnten Sie alarmieren
                 </div>
             </div>
         </div>
@@ -244,20 +268,29 @@
                 <div>
                     <input type="radio"
                            id="profile-male"
-                           name="profile-gender" /> männlich
+                           name="profile-gender" /> <label for="profile-male"
+                                                           style="padding-left: 2px; top: -2px; position: relative; color: inherit;">
+                                                        männlich
+                                                    </label>
                     &nbsp;
                     &nbsp;
 
                     <input type="radio"
                            id="profile-female"
-                           name="profile-gender" /> weiblich
+                           name="profile-gender" /> <label for="profile-female"
+                                                           style="padding-left: 2px; top: -2px; position: relative; color: inherit;">
+                                                        weiblich
+                                                    </label>
                 </div>
             </div>
 
             <div style="text-align: center;font-size:1.2em;">
-                <button class="button-green btn-xl">
+                <button class="button-green btn-xl" id="save-profile">
                     <i class="fa fa-save fa-fw"></i> Speichern
                 </button>
+                <div id="profile-saved" style="display:none;font-weight:600;">
+                    <i class="fa fa-check fa-fw"></i> Gespeichert
+                </div>
             </div>
 
         </div>
@@ -268,84 +301,125 @@
                 Stellen Sie hier Ihre generelle Verfügbarkeit ein. Wenn Sie darüber hinaus für eine bestimmte Zeit
                 nicht verfügbar sind, können Sie das im Menu angeben.
             </div>
-            <div>
+            <div class="hidden">
                 <button class="button-green" style="width: 100%; margin: 10px 0px;">
                     Ich bin immer verfügbar
                 </button>
             </div>
 
-            <div class="card" style="padding:0px;">
+            <div class="card" style="padding:0px;" id="availability-table-container">
                 <table class="table table-striped" id="availability-table">
                     <tbody>
-                        <tr>
-                            <td>
+                        <tr data-day="1">
+                            <td class="day-name">
                                 Montag
                             </td>
-                            <td>
+                            <td class="day-times" data-available="true" data-start="00:00" data-end="23:59">
                                 00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr data-day="2">
+                            <td class="day-name">
                                 Dienstag
                             </td>
-                            <td>
+                            <td class="day-times" data-available="true" data-start="00:00" data-end="23:59">
                                 00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr data-day="3">
+                            <td class="day-name">
                                 Mittwoch
                             </td>
-                            <td>
+                            <td class="day-times" data-available="true" data-start="00:00" data-end="23:59">
                                 00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr data-day="4">
+                            <td class="day-name">
                                 Donnerstag
                             </td>
-                            <td>
+                            <td class="day-times" data-available="true" data-start="00:00" data-end="23:59">
                                 00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr data-day="5">
+                            <td class="day-name">
                                 Freitag
                             </td>
-                            <td>
+                            <td class="day-times" data-available="true" data-start="00:00" data-end="23:59">
                                 00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr data-day="6">
+                            <td class="day-name">
                                 Samstag
                             </td>
-                            <td>
+                            <td class="day-times" data-available="true" data-start="00:00" data-end="23:59">
                                 00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr data-day="7">
+                            <td class="day-name">
                                 Sonntag
                             </td>
-                            <td>
-                                Nicht verfügbar <i class="fa fa-angle-right fa-fw"></i>
+                            <td class="day-times" data-available="true" data-start="00:00" data-end="23:59">
+                                00.00 - 23.59 <i class="fa fa-angle-right fa-fw"></i>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <p>
-                Select starting time: Anfangszeit auswaehlen
-            </p>
-            <p>
-                Select end time: Endzeit auswaehlen
-            </p>
-            <p>
-                Save: speichern
-            </p>
+            <div class="card" id="set-availability-day" style="display:none;">
+                <div class="card-title">
+                    Sonntag
+                </div>
+                <div class="card-date">
+                    <div class="availability-day">
+                        <div class="on">
+                            <i class="fa fa-toggle-on pull-right"></i>
+                            <div class="title-row">
+                                Verfügbar
+                            </div>
+                        </div>
+                        <div class="off">
+                            <i class="fa fa-toggle-off pull-right"></i>
+                            <div class="title-row">
+                                Nicht verfügbar
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p style="margin-top:5px;margin-bottom:10px;" class="availability-starttime-container">
+                        <label style="padding:0px 5px;"
+                               for="availability-starttime">
+                            Anfangszeit auswählen
+                        </label>
+                        <input type="time"
+                               id="availability-starttime"
+                               value="08:00"
+                               style="width:100%;border:none;background:none;border-bottom:2px solid #DDD;padding-top:0px;" />
+                    </p>
+
+                    <p style="margin-bottom:10px;" class="availability-endtime-container">
+                        <label style="padding:0px 5px;"
+                               for="availability-endtime">
+                            Endzeit auswählen
+                        </label>
+                        <input type="time"
+                               id="availability-endtime"
+                               value="18:00"
+                               style="width:100%;border:none;background:none;border-bottom:2px solid #DDD;padding-top:0px;" />
+                    </p>
+
+                    <p>
+                        <button class="button-green" style="width:100%;" id="save-availability">
+                            <i class="fa fa-save fa-fw"></i> Speichern
+                        </button>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <div id="page-alarmmeldungen" class="page hidden" data-pagetitle="Meine Alarmmeldungen">
@@ -502,44 +576,55 @@
     <div id="page-kontakt" class="page hidden" data-pagetitle="Kontakt">
         <div class="container">
 
-            <div class="form-field">
-                <label>
-                    Ihr Name
-                </label>
-                <input type="text"
-                       id="contact-name"
-                       class="form-control" />
-            </div>
+            <div id="formular">
+                <div class="page-intro" style="font-size:1.1em;line-height:1.5;padding-bottom:15px;">
+                    Mit dieser Formular können Sie uns Fragen und Feedback schicken.
+                </div>
 
-            <div class="form-field">
-                <label>
-                    Ihre Emailadresse
-                </label>
-                <input type="email"
-                       id="contact-email"
-                       class="form-control" />
-            </div>
+                <div class="form-field">
+                    <label>
+                        Ihr Name
+                    </label>
+                    <input type="text"
+                           id="contact-name"
+                           class="form-control" />
+                </div>
 
-            <div class="form-field">
-                <label>
-                    Ihre Telefonnummer
-                </label>
-                <input type="tel"
-                       id="contact-phone"
-                       class="form-control" />
-            </div>
+                <div class="form-field">
+                    <label>
+                        Ihre Emailadresse
+                    </label>
+                    <input type="email"
+                           id="contact-email"
+                           class="form-control" />
+                </div>
 
-            <div class="form-field">
-                <label>
-                    Ihre Nachricht
-                </label>
-                <textarea class="form-control"></textarea>
-            </div>
+                <div class="form-field">
+                    <label>
+                        Ihre Telefonnummer
+                    </label>
+                    <input type="tel"
+                           id="contact-phone"
+                           class="form-control" />
+                </div>
 
-            <div style="text-align: center;font-size:1.2em;">
-                <button class="button-green btn-xl">
-                    <i class="fa fa-send fa-fw"></i> Senden
-                </button>
+                <div class="form-field">
+                    <label>
+                        Ihre Nachricht
+                    </label>
+                    <textarea class="form-control" rows="4"></textarea>
+                </div>
+
+                <div style="text-align: center;font-size:1.2em;">
+                    <button class="button-green btn-xl" id="send-form">
+                        <i class="fa fa-send fa-fw"></i> Senden
+                    </button>
+                </div>
+            </div>
+            <div id="form-sent" style="display:none;">
+                <div class="page-intro" style="font-size:1.1em;line-height:1.5;padding-bottom:15px;">
+                    Herzlichen Danke für Ihre Nachricht. Gegebenenfalls werden wir Ihnen kontaktieren.
+                </div>
             </div>
         </div>
     </div>
@@ -579,6 +664,21 @@
                     </button>
                 </div>
             </div>
+
+            <div class="card hidden" id="card-done-button">
+                <div class="card-title">
+                    Einsatz erledigt
+                </div>
+                <div class="card-date">
+                    Bitte lassen Sie uns wissen, ob Sie Ihren Teil des Einsatzes erledigt haben
+                </div>
+                <div class="card-body">
+                    <button class="button-green assistance-done-button">
+                        <i class="fa fa-check fa-fw"></i> Ich habe meinen Einsatz erledigt
+                    </button>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-title">
                     Medizinischer Notfall
@@ -591,30 +691,16 @@
                 </div>
             </div>
 
-            <div class="card hidden" id="card-done-button">
-                <div class="card-title">
-                    Einsatz erledigt
-                </div>
-                <div class="card-date">
-                    Bitte lassen Sie uns wissen, ob Sie Ihren Teil des Einsatzes erledigt haben
-                </div>
-                <div class="card-body">
-                    <button class="button-green assistance-done-button">
-                        <i class="fa fa-check fa-fw"></i> Ich habe meine Teil erledigt
-                    </button>
-                </div>
-            </div>
-
             <div class="card" id="card-call-button">
                 <div class="card-title">
-                    Wuenschen Sie Kontakt?
+                    Wünschen Sie Kontakt?
                 </div>
                 <div class="card-date">
-                    Brauchen Sie weitere Informationen oder zusaetzliche Unterstuetzung?
+                    Brauchen Sie weitere Informationen oder zusätzliche Unterstützung?
                 </div>
                 <div class="card-body">
                     <button class="button-red get-called-button">
-                        <i class="fa fa-phone fa-fw"></i> Rueckruf vom Disponenten
+                        <i class="fa fa-phone fa-fw"></i> Rückruf vom Disponenten
                     </button>
                 </div>
             </div>

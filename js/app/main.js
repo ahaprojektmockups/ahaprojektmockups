@@ -37,17 +37,67 @@ function setUserInfo(){
     );
 }
 
+function showAvailabilityTimes(){
+    $('.availability-day .off').hide();
+    $('.availability-day .on').show();
+    $(".availability-starttime-container, .availability-endtime-container").show();
+}
+
+function hideAvailabilityTimes(){
+    $('.availability-day .on').hide();
+    $('.availability-day .off').show();
+    $(".availability-starttime-container, .availability-endtime-container").hide();
+}
+
 $(document).ready(function(){
     resize();
-
-
-    $("#testParentFunction").click(function(){
-        parent.testMeTestMeTestMeOooh();
-    });
 
     $("#card-reached-button button").click(function(){
         $("#card-reached-button").addClass('hidden');
         $("#card-done-button").removeClass('hidden');
+
+        parent.API.request(
+            'reachedCall',
+            {
+                call:sessionStorage.callUID
+            },
+            function(response){},
+            function(response){}
+        );
+    });
+
+    $("#card-done-button button").click(function(){
+        $("#card-done-button .card-date").addClass('hidden');
+        $("#card-done-button .card-body").html(
+            '<span style="font-weight:600;"><i class="fa fa-check fa-fw"></i> Herzlichen Dank für Ihre Einsatz.</span>'
+        );
+
+        $("#card-call-button, #card-cancel-button").hide();
+
+        parent.API.request(
+            'finishedCall',
+            {
+                call:sessionStorage.callUID
+            },
+            function(response){},
+            function(response){}
+        );
+    });
+
+    $("#card-call-button button").click(function(){
+        alert(
+            "Ein Disponent wird Sie in kurzer Zeit anrufen."
+        );
+    });
+
+    $("#card-cancel-button button").click(function(){
+        if(confirm(
+                "Sind Sie sich sicher, dass Sie den Einsatz abbrechen möchten?"
+            )){
+            setPage(
+                'neuigkeiten'
+            );
+        }
     });
 
     $("#navToggle, #navClose").on('click', toggleMenu);
@@ -84,6 +134,100 @@ $(document).ready(function(){
             $('.doNotDisturb .off').hide();
             $('.doNotDisturb .on').show();
         }
+    });
+
+    $(".availability-day").click(function(){
+        if($('.on', this).css('display')=='block'){
+            hideAvailabilityTimes();
+        }else{
+            showAvailabilityTimes();
+        }
+    });
+
+    $(".day-times").click(function(){
+        var times = $(this);
+        if($(times).attr('data-available')=='false') {
+            hideAvailabilityTimes();
+        }else{
+            showAvailabilityTimes();
+            $('#availability-starttime').val(
+                $(times).attr('data-start')
+            );
+            $('#availability-endtime').val(
+                $(times).attr('data-end')
+            );
+        }
+
+        var row = $(this).parent();
+        var day = $(row).attr('data-day');
+        $("#save-availability").attr('data-day', day);
+
+        var dayName = $('.day-name', row).text();
+
+        var setAvailabilityCard = $("#set-availability-day");
+        $('.card-title', setAvailabilityCard).html(
+            dayName
+        );
+
+        $(setAvailabilityCard).show();
+        $("#availability-table-container").hide();
+    });
+
+    $("#save-availability").click(function(e){
+        e.preventDefault();
+
+        var day = $(this).attr('data-day');
+        var row = $("#availability-table tr[data-day=" + day +"]");
+
+        $("#set-availability-day").hide();
+        $("#availability-table-container").show();
+
+        if($('#set-availability-day .on').css('display')=='block'){
+            $('.day-times', row).attr('data-available', 'true');
+            var start = $('#availability-starttime').val();
+            var end = $("#availability-endtime").val();
+            $('.day-times', row).attr('data-start', start);
+            $('.day-times', row).attr('data-end', end);
+            $('.day-times', row).html(
+                start + ' - ' + end + ' <i class="fa fa-angle-right fa-fw"></i>'
+            );
+        }else{
+            $('.day-times', row).attr('data-available', 'false');
+            $('.day-times', row).html(
+                'Nicht verfügbar <i class="fa fa-angle-right fa-fw"></i>'
+            );
+        }
+
+        return false;
+    });
+
+    $('#save-profile').click(function(){
+        var button = this;
+        $(this).prop('disabled',true);
+        $(this).html(
+            '<i class="fa fa-spinner fa-pulse fa-fw"></i> Speichern...'
+        );
+        setTimeout(function(){
+            $(button).prop('disabled',false);
+            $(button).html(
+                '<i class="fa fa-save fa-fw"></i> Speichern'
+            );
+            $("#profile-saved").show();
+            setTimeout(function(){
+                $("#profile-saved").fadeOut(1500);
+            },1500);
+        },1500);
+    });
+
+    $("#send-form").click(function(){
+        $('input, button, textarea', $("#formular")).prop('disabled',true);
+        $(this).html(
+            '<i class="fa fa-spinner fa-pulse fa-fw"></i> Senden...'
+        );
+        setTimeout(function(){
+            $("#formular").hide(500);
+            $("#form-sent").show(500);
+        },1500);
     })
 });
 

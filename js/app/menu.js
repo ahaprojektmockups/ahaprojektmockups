@@ -20,15 +20,12 @@ function toggleMenu(){
 
 function setPage(page){
     if(!page || page==""){
-        page = 'verfuegbarkeit';
+        page = 'neuigkeiten';
+        //page = 'verfuegbarkeit';
     }
 
     $('#menu li').removeClass('active');
     $(".page").addClass('hidden');
-
-    $("#menu-sign-out").click(function(){
-        parent.logout();
-    });
 
     if($("#page-" + page).length){
         $("#page-" + page).removeClass('hidden');
@@ -59,7 +56,15 @@ function setPage(page){
 
 function anchorHandler(e){
     var anchor = this;
-    var uri = $(anchor).attr('href').replace('#','');
+    if($(anchor).attr("id")=='menu-sign-out'){
+        if(confirm(
+                "Sind Sie sich sicher, dass Sie sich abmelden möchten?"
+            )){
+            parent.logout();
+        }
+    }else{
+        var uri = $(anchor).attr('href').replace('#','');
 
-    setPage(uri);
+        setPage(uri);
+    }
 }

@@ -241,6 +241,7 @@ function logout(){
     setFrame('login.html');
 }
 
+
 function acceptCall(){
     navigator.vibrate(0);
     API.request(
@@ -295,6 +296,11 @@ function setAppOrLogin(){
             'login.html'
         );
     }
+
+    document.addEventListener("backbutton", function (e) {
+        e.preventDefault();
+        appwindow.hideMenu();
+    }, false );
 }
 
 
@@ -338,6 +344,7 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -348,7 +355,7 @@ var app = {
         console.log('Received Event: ' + id);
 
         $('body').append(
-            '<iframe class="full-height" id="app-frame" />'
+            '<iframe name="appwindow" class="full-height" id="app-frame" />'
         );
 
         /**/
@@ -379,5 +386,6 @@ var app = {
         }else{
             setAppOrLogin();
         }
+
     }
 };
